@@ -1,23 +1,21 @@
 package stankevich.patterns.behavioral.stage;
 
 public class Document {
-    DocumentOperation operation;
+    private DocumentState state;
 
-    public void setOperation(DocumentOperation operation) {
-        this.operation = operation;
+    public Document() {
+        this.state = new DraftState();
     }
 
-    public void changeOperation() {
-        if (operation instanceof ValidateDocument) {
-            setOperation(new ReplaceParams());
-        } else if (operation instanceof ReplaceParams) {
-            setOperation(new SignDocument());
-        } else if (operation instanceof SignDocument) {
-            setOperation(new ValidateDocument());
-        }
+    public void changeState(DocumentState state) {
+        this.state = state;
     }
 
-    public void doOperation() {
-        operation.doOperation();
+    public void publish() {
+        state.publish(this);
+    }
+
+    public void approve() {
+        state.approve(this);
     }
 }

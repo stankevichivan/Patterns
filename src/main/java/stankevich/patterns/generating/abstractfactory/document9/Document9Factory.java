@@ -7,17 +7,17 @@ import stankevich.patterns.generating.abstractfactory.Validator;
 
 public class Document9Factory implements DocumentFactory {
     @Override
-    public Document getDocument() {
+    public Document createDocument() {
         return new Document9();
     }
 
     @Override
-    public Validator getValidator() {
+    public Validator createValidator() {
         return new Validator9();
     }
 
     @Override
-    public Replacer getReplacer() {
+    public Replacer createReplacer() {
         return new Replacer9();
     }
 }

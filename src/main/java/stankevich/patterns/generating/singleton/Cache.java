@@ -3,19 +3,20 @@ package stankevich.patterns.generating.singleton;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cache {
+public final class Cache {
 
-    private static Cache cache;
-    private static final Map<String, String> cacheRepository = new HashMap<>();
+    private final Map<String, String> cacheRepository = new HashMap<>();
 
     private Cache() {
+        System.out.println("Singleton created");
     }
 
-    public static synchronized Cache getCache() {
-        if (cache == null) {
-            cache = new Cache();
-        }
-        return cache;
+    private static class Holder {
+        static final Cache INSTANCE = new Cache();
+    }
+
+    public static Cache getCache() {
+        return Holder.INSTANCE;
     }
 
     public String addToCache(String key, String value) {

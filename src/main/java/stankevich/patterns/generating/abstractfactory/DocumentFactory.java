@@ -1,9 +1,9 @@
 package stankevich.patterns.generating.abstractfactory;
 
 public interface DocumentFactory {
-    Document getDocument();
+    Document createDocument();
 
-    Validator getValidator();
+    Validator createValidator();
 
-    Replacer getReplacer();
+    Replacer createReplacer();
 }

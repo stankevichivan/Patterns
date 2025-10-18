@@ -6,9 +6,9 @@ import stankevich.patterns.generating.abstractfactory.document9.Document9Factory
 public class AbstractFactoryRunner {
     public static void main(String[] args) {
         DocumentFactory documentFactory = createDocumentByFactory(18);
-        Document document = documentFactory.getDocument();
-        Validator validator = documentFactory.getValidator();
-        Replacer replacer = documentFactory.getReplacer();
+        Document document = documentFactory.createDocument();
+        Validator validator = documentFactory.createValidator();
+        Replacer replacer = documentFactory.createReplacer();
 
         document.create();
         validator.validate();
